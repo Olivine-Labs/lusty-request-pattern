@@ -25,7 +25,6 @@ return {
       if #tokens > 0 then
         local arguments = {}
         for j=1, #tokens do
-          context.log(item.param[j])
           arguments[item.param[j]]=tokens[j]
         end
         arguments.config=config
