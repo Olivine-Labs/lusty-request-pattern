@@ -1,11 +1,11 @@
-package = "lusty-request-file"
+package = "lusty-request-pattern"
 version = "0.1-0"
 source = {
   url = "https://github.com/Olivine-Labs/lusty-request-file/v0.1.tar.gz",
   dir = "lusty-request-file"
 }
 description = {
-  summary = "Lusty plugin for handling requests with a lua file.",
+  summary = "Lusty plugin for handling requests with a lua file for a pattern.",
   detailed = [[
     Lusty plugin for handling requests with a lua file.
   ]],
@@ -20,6 +20,6 @@ dependencies = {
 build = {
   type = "builtin",
   modules = {
-    ["lusty-request-file.request.file"]  = "src/request/file.lua",
+    ["lusty-request-pattern.request.pattern"]  = "src/request/pattern.lua",
   }
 }
