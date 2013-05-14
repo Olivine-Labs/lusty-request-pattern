@@ -32,9 +32,11 @@ return {
         local arguments = {}
 
         if url ~= tokens[1] then
-        for j=1, #tokens do
-          arguments[item.param[j]]=tokens[j]
-        end
+          for j=1, #tokens do
+            if tokens[j] ~= '' then
+              arguments[item.param[j]]=tokens[j]
+            end
+          end
         end
 
         arguments.config=config
