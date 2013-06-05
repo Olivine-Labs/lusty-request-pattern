@@ -1,6 +1,5 @@
 local util = require 'lusty.util'
 local paramMatch = '([^/?]*)'
-local baseUrlLen = table.concat(channel, '/', 2):len() + #channel + 1
 local patterns = {}
 
 for i=1, #config.patterns do
@@ -21,8 +20,7 @@ end
 
 return {
   handler = function(context)
-    local url = context.request.url:sub(baseUrlLen)
-
+    local url = context.suffix and table.concat(context.suffix, '/')
     for i=1, #patterns do
       local item = patterns[i]
 
