@@ -31,7 +31,7 @@ return {
 
         if url ~= tokens[1] then
           for j=1, #tokens do
-            if tokens[j] ~= '' then
+            if tokens[j] ~= '' and item.param[j] then
               arguments[item.param[j]]=tokens[j]
             end
           end
