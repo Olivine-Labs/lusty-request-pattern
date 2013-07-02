@@ -20,6 +20,7 @@ end
 
 return {
   handler = function(context)
+    context.response.status = 404
     local url = context.suffix and table.concat(context.suffix, '/')
     for i=1, #patterns do
       local item = patterns[i]
