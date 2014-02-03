@@ -1,9 +1,11 @@
 local util = require 'lusty.util'
 local paramMatch = '([^/?]*)'
+local channel = {unpack(channel)}
+table.remove(channel, 1)
+local prelen = table.concat(channel, '/'):len()+2
 
 local listener = function()
 
-  local channel = {unpack(channel)}
   local patterns = {}
 
   for i=1, #config.patterns do
@@ -26,16 +28,18 @@ local listener = function()
 
   return {
     handler = function(context)
+
       context.response.status = 404
-      local url = context.suffix and table.concat(context.suffix, '/')
+      local uri = context.request.uri:sub(prelen)
+
       for i=1, #patterns do
         local item = patterns[i]
-        local tokens = {url:match(item.pattern)}
+        local tokens = {uri:match(item.pattern)}
 
         if #tokens > 0 then
           local arguments = {}
 
-          if url ~= tokens[1] then
+          if uri ~= tokens[1] then
             for j=1, #tokens do
               if tokens[j] ~= '' and item.param[j] then
                 arguments[item.param[j]]=tokens[j]
