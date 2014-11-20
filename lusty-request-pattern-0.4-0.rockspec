@@ -1,7 +1,7 @@
 package = "lusty-request-pattern"
-version = "0.3-0"
+version = "0.4-0"
 source = {
-  url = "https://github.com/Olivine-Labs/lusty-request-pattern/archive/v0.3.tar.gz",
+  url = "https://github.com/Olivine-Labs/lusty-request-pattern/archive/v0.4.tar.gz",
   dir = "lusty-request-pattern-0.3"
 }
 description = {
@@ -20,6 +20,6 @@ dependencies = {
 build = {
   type = "builtin",
   modules = {
-    ["lusty-request-pattern.request.pattern"]  = "src/request/pattern.lua",
+    ["lusty-request-pattern.request.pattern"]  = "lusty-request-pattern/request/pattern.lua",
   }
 }

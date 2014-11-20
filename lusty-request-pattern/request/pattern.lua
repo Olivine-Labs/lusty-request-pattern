@@ -1,5 +1,4 @@
 local util = require 'lusty.util'
-local paramMatch = '([^/?]*)'
 local channel = {unpack(channel)}
 table.remove(channel, 1)
 local prelen = table.concat(channel, '/'):len()+2
@@ -19,7 +18,7 @@ local listener = function()
 
       item.pattern = "^"..match:gsub("{([^}]*)}", function(c)
         item.param[#item.param+1]=c
-        return paramMatch
+        return '([^/?]*)'
       end) .. "/?"
 
       patterns[#patterns+1] = item
